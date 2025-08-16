@@ -16,19 +16,19 @@ As a Digital Solution Engineer, the goal is to guide the customer through secure
 
 ```mermaid
 graph TD
-    A[Technician uploads defect image & notes] --> B[Azure Blob Storage]
-    B --> C[Cognitive Services (Vision API)]
-    C --> D[Azure OpenAI (Summarization)]
-    D --> E[Summarized defect report]
-    B --> F[Azure ML Workspace (Anomaly Detection)]
-    F --> G[Alerts/Insights]
-    H[App Service (optional)] --> B
+    A(Technician uploads defect image & notes) --> B(Azure Blob Storage)
+    B --> C(Cognitive Services - Vision API)
+    C --> D(Azure OpenAI - Summarization)
+    D --> E(Summarized defect report)
+    B --> F(Azure ML Workspace - Anomaly Detection)
+    F --> G(Alerts/Insights)
+    H(App Service - optional) --> B
     H --> C
     H --> D
     H --> F
-    I[Key Vault] -.-> H
+    I(Key Vault) -.-> H
     I -.-> F
-    J[App Insights] --> H
+    J(App Insights) --> H
     J --> F
 ```
 
