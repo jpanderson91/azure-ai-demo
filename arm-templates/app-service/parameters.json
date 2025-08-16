@@ -3,13 +3,13 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appServicePlanName": {
-      "value": "aiasp123456789"
+      "value": "aiasp987654321"
     },
     "webAppName": {
-      "value": "aiwa123456789" 
+      "value": "aiwa987654321"
     },
     "location": {
-      "value": "eastus"
+      "value": "centralus"
     }
   }
 }

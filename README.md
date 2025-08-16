@@ -14,7 +14,23 @@ As a Digital Solution Engineer, the goal is to guide the customer through secure
 
 ## 🏗️ Architecture Summary
 
-![Architecture Diagram](docs/architecture-diagram.png)
+```mermaid
+graph TD
+    A[Technician uploads defect image & notes] --> B[Azure Blob Storage]
+    B --> C[Cognitive Services (Vision API)]
+    C --> D[Azure OpenAI (Summarization)]
+    D --> E[Summarized defect report]
+    B --> F[Azure ML Workspace (Anomaly Detection)]
+    F --> G[Alerts/Insights]
+    H[App Service (optional)] --> B
+    H --> C
+    H --> D
+    H --> F
+    I[Key Vault] -.-> H
+    I -.-> F
+    J[App Insights] --> H
+    J --> F
+```
 
 | Component | Service | Purpose |
 |----------|---------|---------|
@@ -25,6 +41,30 @@ As a Digital Solution Engineer, the goal is to guide the customer through secure
 | **Storage** | Azure Blob Storage | Store images and metadata securely |
 | **Secrets Management** | Azure Key Vault | Secure API keys and connection strings |
 | **Deployment** | ARM Templates | Infrastructure-as-code for repeatable setup |
+
+---
+
+## 📖 How This Solution Could Be Used
+
+1. **Technician Submission:**  
+   A technician uses the defect tracking app to upload a photo of a faulty part and enter notes describing the issue.
+
+2. **Automated Image Analysis:**  
+   The image is stored in Azure Blob Storage and automatically analyzed by the Vision API to detect damage, classify the defect, and extract relevant features.
+
+3. **AI-Powered Summarization:**  
+   The technician’s notes are sent to Azure OpenAI, which generates a concise summary for faster triage and reporting.
+
+4. **Anomaly Detection:**  
+   All defect data is fed into a custom ML model in Azure ML Workspace. If an unusual pattern is detected (e.g., a spike in a certain defect type), the system flags it for review.
+
+5. **Secure & Monitored:**  
+   All secrets (API keys, connection strings) are managed in Key Vault. Application Insights provides monitoring and diagnostics for the solution.
+
+6. **Business Impact:**  
+   - Reduces manual effort for defect triage
+   - Accelerates root cause analysis
+   - Enables proactive quality improvements
 
 ---
 
@@ -43,15 +83,24 @@ As a Digital Solution Engineer, the goal is to guide the customer through secure
 ```plaintext
 azure-ai-demo/
 ├── arm-templates/
-│   ├── mainTemplate.json
-│   └── parameters.json
-├── app/
-│   ├── backend/ (Python or Node.js)
-│   └── frontend/ (optional stub)
-├── notebooks/
-│   └── anomaly_detection.ipynb
+│   ├── app-service/
+│   ├── cognitive-services/
+│   ├── key-vault/
+│   ├── ml-workspace/
+│   ├── openai/
+│   ├── resource-group/
+│   └── storage-account/
 ├── docs/
-│   ├── architecture-diagram.png
-│   ├── customer-scenario.md
-│   └── deployment-guide.md
+│   └── screenshots/
+│       ├── azure-ai-demo-app-service-plan.png
+│       ├── azure-ai-demo-application-insights-smart-detection-action-group.png
+│       ├── azure-ai-demo-application-insights.png
+│       ├── azure-ai-demo-computer-vision.png
+│       ├── azure-ai-demo-key-vault.png
+│       ├── azure-ai-demo-ml-workspace.png
+│       ├── azure-ai-demo-open-ai.png
+│       ├── azure-ai-demo-resource-group.png
+│       ├── azure-ai-demo-storage-account.png
+│       └── azure-ai-demo-web-app.png
 └── README.md
+```
