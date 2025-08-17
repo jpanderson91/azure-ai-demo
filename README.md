@@ -79,8 +79,15 @@ graph TD
 
 
 4. **Anomaly Detection:**  
-   All defect data is fed into a custom ML model in Azure ML Workspace. If an unusual pattern is detected (e.g., a spike in a certain defect type), the system flags it for review.  
-   ![Azure ML Workspace](docs/screenshots/azure-ai-demo-ml-workspace.png)
+   Defect data is ingested into Azure ML via a jupyter notebook, where a simple anomaly detection model (Isolation Forest) flags unusual patterns for review.
+
+   ![Juptyter notebook](docs/screenshots/azure-ai-demo-azure-ml-studio-jupyter-notebook.png)
+   ![Defect data loaded](docs/screenshots/azure-ai-demo-azure-ml-studio-jupyter-notebook-cell1run.png)
+   ![Defect counts by type](docs/screenshots/azure-ai-demo-azure-ml-studio-jupyter-notebook-cell2run.png)
+   ![Anomaly detection results](docs/screenshots/azure-ai-azure-demo-ml-studio-jupyter-notebook-cell3run.png)
+
+   *Example anomaly detection output:*
+   > On 2025-08-19, an unusual increase in defects was detected, triggering an anomaly alert for further investigation.
 
 
 5. **Secure & Monitored:**  
