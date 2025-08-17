@@ -91,10 +91,27 @@ graph TD
 
 
 5. **Secure & Monitored:**  
-   All secrets (API keys, connection strings) are managed in Key Vault. Application Insights provides monitoring and diagnostics for the solution.  
-   ![Key Vault](docs/screenshots/azure-ai-demo-key-vault.png)  
-   ![Application Insights](docs/screenshots/azure-ai-demo-application-insights.png)  
-   ![App Insights Smart Detection](docs/screenshots/azure-ai-demo-application-insights-smart-detection-action-group.png)
+All secrets (API keys, connection strings) are managed in Key Vault. Application Insights provides monitoring and diagnostics for the solution.
+
+**Key Vault:**  
+Pre-requisites: 
+To create and view secrets in Azure Key Vault:
+
+- The Key Vault must be configured to use Azure RBAC for permissions.
+- Your user account must have the "Key Vault Secrets Officer" or "Key Vault Administrator" role at the Key Vault scope.
+- After assigning the role, wait a few minutes for permissions to propagate.
+- You can then create secrets via Azure CLI or Portal, and view the list of secret names for documentation.
+
+Secrets are securely stored and accessed by the application at runtime, never hard-coded.  
+![Key Vault secrets list](docs/screenshots/azure-ai-demo-key-vault-secrets.png)
+
+**Application Insights:**  
+Real-time monitoring and diagnostics for the solution, including live metrics and smart detection of anomalies.  
+![Application Insights](docs/screenshots/azure-ai-demo-application-insights.png)
+
+**Smart Detection Example:**  
+Automated alerts for unusual application behavior, enabling proactive troubleshooting.  
+![App Insights Smart Detection](docs/screenshots/azure-ai-demo-application-insights-smart-detection-action-group.png)
 
 
 6. **App Service Ready for Integration:**  
