@@ -47,25 +47,52 @@ graph TD
 ## 📖 How This Solution Could Be Used
 
 1. **Technician Submission:**  
-   A technician uses the defect tracking app to upload a photo of a faulty part and enter notes describing the issue.
+   A technician uploads a photo of a faulty part and enters notes describing the issue using a simple upload interface.  
+   ![Technician uploads image](docs/screenshots/azure-ai-demo-technician-upload-defect-image.png)  
+   After upload, the image appears in the `defect-images` container:  
+   ![Defect images container](docs/screenshots/azure-ai-demo-defect-images-container-broken-machine.png)
+
 
 2. **Automated Image Analysis:**  
-   The image is stored in Azure Blob Storage and automatically analyzed by the Vision API to detect damage, classify the defect, and extract relevant features.
+   The technician’s uploaded image is automatically analyzed by Azure Cognitive Services (Vision API).  
+   The screenshot below shows the API call and the AI-generated response, which includes:
+   - **Tags:** The service identifies relevant features in the image (e.g., "device", "machine", "pipe", "engineering", "metal", etc.).
+   - **Caption:** The AI generates a human-readable summary, such as "a close-up of a machine".
+
+   ![Vision API analysis in terminal](docs/screenshots/azure-ai-demo-computer-vision-image-analysis.png)
+
+   The image analyzed in this step:  
+   ![Broken machine image](docs/screenshots/broken-machine.jpg)
+
 
 3. **AI-Powered Summarization:**  
-   The technician’s notes are sent to Azure OpenAI, which generates a concise summary for faster triage and reporting.
+   The technician’s notes are sent to Azure OpenAI, which generates a concise summary for faster triage and reporting.  
+   ![Azure OpenAI](docs/screenshots/azure-ai-demo-open-ai.png)
+
 
 4. **Anomaly Detection:**  
-   All defect data is fed into a custom ML model in Azure ML Workspace. If an unusual pattern is detected (e.g., a spike in a certain defect type), the system flags it for review.
+   All defect data is fed into a custom ML model in Azure ML Workspace. If an unusual pattern is detected (e.g., a spike in a certain defect type), the system flags it for review.  
+   ![Azure ML Workspace](docs/screenshots/azure-ai-demo-ml-workspace.png)
+
 
 5. **Secure & Monitored:**  
-   All secrets (API keys, connection strings) are managed in Key Vault. Application Insights provides monitoring and diagnostics for the solution.
+   All secrets (API keys, connection strings) are managed in Key Vault. Application Insights provides monitoring and diagnostics for the solution.  
+   ![Key Vault](docs/screenshots/azure-ai-demo-key-vault.png)  
+   ![Application Insights](docs/screenshots/azure-ai-demo-application-insights.png)  
+   ![App Insights Smart Detection](docs/screenshots/azure-ai-demo-application-insights-smart-detection-action-group.png)
 
-6. **Business Impact:**  
-   - Reduces manual effort for defect triage
-   - Accelerates root cause analysis
-   - Enables proactive quality improvements
 
+6. **App Service Ready for Integration:**  
+   The App Service is provisioned and ready to host the defect tracking application or API.  
+   ![App Service Plan](docs/screenshots/azure-ai-demo-app-service-plan.png)  
+   ![Web App](docs/screenshots/azure-ai-demo-web-app.png)
+
+---
+
+**Business Impact:**  
+- Reduces manual effort for defect triage  
+- Accelerates root cause analysis  
+- Enables proactive quality improvements
 ---
 
 ## 🚀 Features
