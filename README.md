@@ -124,25 +124,36 @@ graph TD
 
 ```plaintext
 azure-ai-demo/
+├── app/
+│   └── backend/
+│       └── README.md
 ├── arm-templates/
 │   ├── app-service/
+│   │   ├── mainTemplate.json
+│   │   └── parameters.json
 │   ├── cognitive-services/
+│   │   ├── mainTemplate.json
+│   │   ├── parameters.json
+│   │   └── please help me with the Azure AI demo.md
 │   ├── key-vault/
+│   │   ├── mainTemplate.json
+│   │   └── parameters.json
 │   ├── ml-workspace/
+│   │   ├── mainTemplate.json
+│   │   └── parameters.json
 │   ├── openai/
+│   │   ├── mainTemplate.json
+│   │   └── parameters.json
 │   ├── resource-group/
+│   │   └── mainTemplate.json
 │   └── storage-account/
+│       ├── mainTemplate.json
+│       └── parameters.json
 ├── docs/
 │   └── screenshots/
-│       ├── azure-ai-demo-app-service-plan.png
-│       ├── azure-ai-demo-application-insights-smart-detection-action-group.png
-│       ├── azure-ai-demo-application-insights.png
-│       ├── azure-ai-demo-computer-vision.png
-│       ├── azure-ai-demo-key-vault.png
-│       ├── azure-ai-demo-ml-workspace.png
-│       ├── azure-ai-demo-open-ai.png
-│       ├── azure-ai-demo-resource-group.png
-│       ├── azure-ai-demo-storage-account.png
-│       └── azure-ai-demo-web-app.png
+├── notebooks/
+│   └── README.md
+├── defect-reports.csv
+├── sample-technician-note.md
 └── README.md
 ```
