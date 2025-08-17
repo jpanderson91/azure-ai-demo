@@ -126,9 +126,27 @@ Automated alerts for unusual application behavior, enabling proactive troublesho
 
 
 6. **App Service Ready for Integration:**  
-   The App Service is provisioned and ready to host the defect tracking application or API.  
+   The App Service is provisioned and ready to host the defect tracking application or API. This enables seamless integration with the Azure AI services deployed above, providing a scalable and secure platform for future enhancements.
+
+   - **Integration Points:**  
+     The App Service can be configured to:
+     - Receive image uploads and technician notes from the frontend.
+     - Call the Vision API for image analysis.
+     - Call Azure OpenAI for note summarization.
+     - Store and retrieve data from Blob Storage.
+     - Log telemetry to Application Insights.
+     - Securely access secrets from Key Vault.
+
+   - **Next Steps for Integration:**  
+     - Deploy backend code (e.g., Python, Node.js, .NET) to the App Service.
+     - Configure environment variables and connection strings using Key Vault.
+     - Instrument the app for Application Insights monitoring.
+     - Connect the app to the other Azure resources provisioned in this demo.
+
    ![App Service Plan](docs/screenshots/azure-ai-demo-app-service-plan.png)  
    ![Web App](docs/screenshots/azure-ai-demo-web-app.png)
+
+   *Screenshots above show the App Service Plan and Web App provisioned and ready for deployment.*
 
 ---
 
